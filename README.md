@@ -35,7 +35,7 @@ Please note that an Exception will be thrown if your connection string does not 
 ```php
 <?php
 
-use JustSteveKing\Graph\Connection\Adapters\Neo4j\Adapters\HttpAdapter;
+use JustSteveKing\Graph\Connection\Adapters\Neo4j\Adapters\Http\HttpAdapter;
 
 $adapter = HttpAdapter::build(
     'http://neo4j:password@localhost:7474',
@@ -49,7 +49,7 @@ $adapter = HttpAdapter::build(
 ```php
 <?php
 
-use JustSteveKing\Graph\Connection\Adapters\Neo4j\Adapters\HttpAdapter;
+use JustSteveKing\Graph\Connection\Adapters\Neo4j\Adapters\Http\HttpAdapter;
 
 $adapter = HttpAdapter::build(
     'http://neo4j:password@localhost:7474',
@@ -67,7 +67,7 @@ Once you have an active adapter, and have chosen your database, you will want to
 ```php
 <?php
 
-use JustSteveKing\Graph\Connection\Adapters\Neo4j\Adapters\HttpAdapter;
+use JustSteveKing\Graph\Connection\Adapters\Neo4j\Adapters\Http\HttpAdapter;
 
 $adapter = HttpAdapter::build(
     'http://neo4j:password@localhost:7474',
@@ -87,7 +87,7 @@ $database->query('MATCH (film:Film) WHERE film.name = "Forrest Gump" RETURN film
 ### From here we are free to send this transaction to the server
 
 ```php
-use JustSteveKing\Graph\Connection\Adapters\Neo4j\Adapters\HttpAdapter;
+use JustSteveKing\Graph\Connection\Adapters\Neo4j\Adapters\Http\HttpAdapter;
 
 $adapter = HttpAdapter::build(
     'http://neo4j:password@localhost:7474',
@@ -112,7 +112,7 @@ Here is an alternative method for sending queries:
 ```php
 <?php
 
-use JustSteveKing\Graph\Connection\Adapters\Neo4j\Adapters\HttpAdapter;
+use JustSteveKing\Graph\Connection\Adapters\Neo4j\Adapters\Http\HttpAdapter;
 
 $adapter = HttpAdapter::build(
     'http://neo4j:password@localhost:7474',
@@ -129,7 +129,7 @@ Or if you would prefer to chain parts of the process:
 ```php
 <?php
 
-use JustSteveKing\Graph\Connection\Adapters\Neo4j\Adapters\HttpAdapter;
+use JustSteveKing\Graph\Connection\Adapters\Neo4j\Adapters\Http\HttpAdapter;
 
 $tomHanks = HttpsAdapter::build(
     'http://neo4j:password@localhost:7474',
@@ -146,7 +146,7 @@ If you want to use my other packages also, you can query like below:
 
 use JustSteveKing\Graph\Builder\Cypher;
 use JustSteveKing\Graph\Connection\ConnectionManager;
-use JustSteveKing\Graph\Connection\Adapters\Neo4j\Adapters\HttpAdapter;
+use JustSteveKing\Graph\Connection\Adapters\Neo4j\Adapters\Http\HttpAdapter;
 
 $connection = ConnectionManager::create(HttpAdapter::build('http://neo4j:password@localhost:7474', null));
 $query = Cypher::query()->match('Person', 'person')->where('person', 'name', '=', 'Tom Hanks')->return('person');
