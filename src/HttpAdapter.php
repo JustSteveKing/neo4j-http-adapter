@@ -7,7 +7,6 @@ namespace JustSteveKing\Graph\Connection\Adapters\Neo4j\Adapters;
 use RuntimeException;
 use GuzzleHttp\Client;
 use JustSteveKing\Graph\Connection\Adapters\AdapterInterface;
-use JustSteveKing\Graph\Connection\Adapters\Neo4j\Adapters\Pipeline;
 
 class HttpAdapter implements AdapterInterface
 {
