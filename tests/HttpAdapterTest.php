@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace JustSteveKing\Tests\Graph\Connection\Adapters\Neo4j\Adapters\Http;
+namespace JustSteveKing\Tests\Graph\Connection\Adapters\Neo4j\Http;
 
-use JustSteveKing\Graph\Connection\Adapters\Neo4j\Adapters\Http\Pipeline;
 use RuntimeException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
@@ -12,7 +11,8 @@ use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\Exception\RequestException;
-use JustSteveKing\Graph\Connection\Adapters\Neo4j\Adapters\Http\HttpAdapter;
+use JustSteveKing\Graph\Connection\Adapters\Neo4j\Http\Pipeline;
+use JustSteveKing\Graph\Connection\Adapters\Neo4j\Http\HttpAdapter;
 
 class HttpAdapterTest extends TestCase
 {

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace JustSteveKing\Tests\Graph\Connection\Adapters\Neo4j\Adapters\Http;
 
 use PHPUnit\Framework\TestCase;
-use JustSteveKing\Graph\Connection\Adapters\Neo4j\Adapters\Http\Pipeline;
+use JustSteveKing\Graph\Connection\Adapters\Neo4j\Http\Pipeline;
 
 class PipelineTest extends TestCase
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace JustSteveKing\Graph\Connection\Adapters\Neo4j\Adapters\Http;
+namespace JustSteveKing\Graph\Connection\Adapters\Neo4j\Http;
 
 use RuntimeException;
 use GuzzleHttp\Client;
