@@ -20,7 +20,7 @@ class HttpAdapterTest extends TestCase
 
     protected string $connectionString = 'http://php:unit@localhost:7474';
 
-    public function buildInstance() : HttpAdapter
+    public function buildInstance(): HttpAdapter
     {
         return HttpAdapter::build(
             $this->connectionString,

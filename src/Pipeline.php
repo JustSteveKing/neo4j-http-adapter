@@ -13,10 +13,10 @@ class Pipeline
 
     /**
      * @param string $query
-     * 
+     *
      * @return void
      */
-    public function push(string $query) : void
+    public function push(string $query): void
     {
         $this->queries[] = $query;
     }
@@ -24,7 +24,7 @@ class Pipeline
     /**
      * @return array
      */
-    public function queries() : array
+    public function queries(): array
     {
         return $this->queries;
     }

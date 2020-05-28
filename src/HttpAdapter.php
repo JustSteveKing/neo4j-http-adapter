@@ -29,6 +29,7 @@ class HttpAdapter implements AdapterInterface
     /**
      * HttpAdapter constructor.
      * @param string $connectionString
+     * @return void
      */
     protected function __construct(string $connectionString, ?string $database)
     {
@@ -53,21 +54,22 @@ class HttpAdapter implements AdapterInterface
 
     /**
      * Returns the alias name of the adapter
-     * 
+     *
      * @return string
      */
-    public static function getName() : string
+    public static function getName(): string
     {
         return 'neo-http';
     }
 
     /**
      * Builds the adapter using a connection string
-     * 
+     *
      * @param string $connectionString
+     * @param string|null $database
      * @return static
      */
-    public static function build(string $connectionString, ?string $database) : self
+    public static function build(string $connectionString, ?string $database): self
     {
         $uri = parse_url($connectionString);
 
@@ -81,6 +83,10 @@ class HttpAdapter implements AdapterInterface
 
     /**
      * Send the request to the neo4j API
+     *
+     * @throws RuntimeException
+     *
+     * @return mixed
      */
     public function send()
     {
@@ -110,14 +116,28 @@ class HttpAdapter implements AdapterInterface
         return json_decode((string) $response->getBody(), true);
     }
 
-    public function on(string $database) : self
+    /**
+     * Set the database you want to query on
+     *
+     * @param string $database
+     *
+     * @return self
+     */
+    public function on(string $database): self
     {
         $this->database = $database;
 
         return $this;
     }
 
-    public function query(string $query) : self
+    /**
+     * Push a query onto the transaction pipeline
+     *
+     * @param string $query
+     *
+     * @return self
+     */
+    public function query(string $query): self
     {
         $this->pipeline->push($query);
 
@@ -126,10 +146,10 @@ class HttpAdapter implements AdapterInterface
 
     /**
      * Prepare statements to be sent
-     * 
+     *
      * @return string
      */
-    public function prepareStatements() : string
+    public function prepareStatements(): string
     {
         $statements = [];
 
@@ -150,40 +170,40 @@ class HttpAdapter implements AdapterInterface
 
     /**
      * A helper method for seeing if a database is selected
-     * 
+     *
      * @return string
      */
-    public function getDatabase() : string
+    public function getDatabase(): string
     {
         return $this->database;
     }
 
     /**
      * A helper method to work with the current Pipeline
-     * 
+     *
      * @return Pipeline
      */
-    public function getPipeline() : Pipeline
+    public function getPipeline(): Pipeline
     {
         return $this->pipeline;
     }
 
     /**
      * A helper method to work with the Guzzle Client for any reason.
-     * 
+     *
      * @return Client
      */
-    public function getClient() : Client
+    public function getClient(): Client
     {
         return $this->client;
     }
 
     /**
      * A helper method mainly for testing purposes
-     * 
+     *
      * @return self
      */
-    public function setClient(Client $client) : self
+    public function setClient(Client $client): self
     {
         $this->client = $client;
 

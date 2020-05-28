@@ -9,7 +9,7 @@ use JustSteveKing\Graph\Connection\Adapters\Neo4j\Adapters\Pipeline;
 
 class PipelineTest extends TestCase
 {
-    public function buildInstance() : Pipeline
+    public function buildInstance(): Pipeline
     {
         return new Pipeline();
     }
